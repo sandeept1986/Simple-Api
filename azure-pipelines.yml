@@ -19,6 +19,13 @@ steps:
     packagesToPack: '**/*.csproj'
     versioningScheme: 'off'
 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '7874d177-1888-4cd8-bf0f-b194a953da73'
+
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
@@ -33,11 +40,7 @@ steps:
   inputs:
     command: 'build'    
 
-variables:
-buildConfiguration: 'Release'
-  
-- script: 'dotnet build --configuration $(buildConfiguration)'
-  displayName: 'dotnet build $(buildConfiguration)' 
+
 
 
 
