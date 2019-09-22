@@ -21,10 +21,10 @@ steps:
     versioningScheme: 'off'
 
 - task: NuGetCommand@2
-      inputs:
-        command: 'restore'
-        restoreSolution: '**/*.sln'
-        feedsToUse: 'select'
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'select'
   
 - task: DotNetCoreInstaller@0
   inputs:
