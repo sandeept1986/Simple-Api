@@ -12,10 +12,14 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: DotNetCoreCLI@2
 - task: NuGetCommand@2
   inputs:
-    command: pack
+    command: 'pack'
+    vstsFeed: '7874d177-1888-4cd8-bf0f-b194a953da73'
     packagesToPack: '**/*.csproj'
+    versioningScheme: 'off'
+  
 - task: DotNetCoreInstaller@0
   inputs:
     version: '2.2.104'
