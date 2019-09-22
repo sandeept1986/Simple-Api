@@ -20,7 +20,7 @@ steps:
     packagesToPack: '**/*.csproj'
     versioningScheme: 'off'
 
-    - task: NuGetCommand@2
+- task: NuGetCommand@2
       inputs:
         command: 'restore'
         restoreSolution: '**/*.sln'
